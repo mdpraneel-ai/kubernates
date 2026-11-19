@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kbs
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: kbs
+
+  template:
+    metadata:
+      labels:
+        app: kbs
+
+    spec:
+      containers:
+        - name: kbs
+          image: kbs                                           
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
